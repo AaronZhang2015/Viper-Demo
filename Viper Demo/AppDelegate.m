@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RootWireframe.h"
+#import "ListWireframe.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    RootWireframe *rootWireframe = [[RootWireframe alloc] init];
+    
+    ListWireframe *listWireframe = [[ListWireframe alloc] init];
+    listWireframe.rootWireframe = rootWireframe;
+    
+    [listWireframe presentListInterfaceFromWindow:self.window];
+    
     return YES;
 }
 
